@@ -1,0 +1,98 @@
+*{
+    margin: 0px; /* establece el margen para los cuatro lados.  */
+    padding: 0px; /* crea el espacio o área alrededor del contenido de un elemento */
+    font-family: sans-serif;
+}
+
+body
+{
+    display: flex; /* especifica si un elemento es tratado como block or inline element y el diseño usado por sus hijos, como flow layout(Diseño de Flujo), grid(Cuadricula) o flex(Flexible) */
+    justify-content: center;  /* define cómo el navegador distribuye el espacio entre y alrededor de los items flex, a lo largo del eje principal de su contenedor */
+    height: 100vh; /* especifica la altura de un elemento */
+    background: whitesmoke;
+    align-items: center; /* controla la alineación de todos los elementos en el eje transversal */
+}
+
+.container 
+{
+    display: flex; /* */
+    flex-wrap: wrap; /* especifica si los elementos "hijos" son obligados a permanecer en una misma línea o pueden fluir en varias líneas */
+    justify-content: center;/* define cómo el navegador distribuye el espacio entre y alrededor de los items flex, a lo largo del eje principal de su contenedor */
+    margin-top: auto; /* establece el margen superior de un elemento especificando una longitud o un porcentaje. */
+}
+
+.card
+{
+    width: calc(33.33% - 40px); /* establece el redondeo de la esquina superior izquierda del elemento */
+    height: 500px; 
+    width: 350px; /* establece el ancho de un elemento */
+    margin: 20px; /* establece el margen para los cuatro lados */
+    box-shadow: 5px 5px 20px black;
+    overflow: hidden; /* nos permite determinar lo que sucede con un elemento cuando su contenido sobrepasa los límites de su contenedor */
+    position: relative; /*  especifica cómo un elemento es posicionado en el documento,el elemento está posicionado Relativo a sí mismo */
+    border-radius: 8px; /* establece el redondeo de la esquina superior izquierda del elemento */
+}
+
+img
+{
+    height: 500px; 
+    width: 350px; 
+    border-radius: 3px; 
+}
+
+.intro
+{
+    height: 70px; 
+    padding: 6px; /* crea el espacio o área alrededor del contenido de un elemento */
+    box-sizing: border-box; /* puede ser usada para ajustar el siguiente comportamiento: content-box es el comportamiento CSS por defecto para el tamaño de la caja */
+    position: absolute; /* puede ser usada para ajustar el siguiente comportamiento: content-box es el comportamiento CSS por defecto para el tamaño de la caja, se elimina del flujo normal de documentos. Se posiciona automáticamente en el punto de inicio (top-left esquina) de su elemento padre. */
+    bottom: 0; /* establece la posición vertical de un elemento posicionado */
+    left: 0; /* left y right: especifican su desplazamiento horizontal */
+    right: 0; 
+    background-color: rgb(27, 27, 27, .5);
+    color: white;
+    transition: .5s;
+}
+
+h1
+{
+    margin: 10px; /* establece el margen para los cuatro lados */
+    font-size: 40px; /* especifica la dimensión de la letra */
+}
+
+p
+{
+    font-size: 20px; 
+    margin: 20px; 
+    visibility: hidden; 
+    opacity: 0; 
+}
+
+span
+{
+    font-weight: bold;
+}
+
+.card:hover
+{
+    cursor: pointer;
+}
+
+.card:hover .intro
+{
+    
+    height: 220px; 
+    background: black;
+}
+
+.card:hover p
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover img
+{
+    transform: scale(1.1) rotate(-3deg);
+}
+

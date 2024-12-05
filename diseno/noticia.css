@@ -1,0 +1,50 @@
+/* Seccion de lectura */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.box-noticia
+{
+    width: 80%;
+    max-width: 800px;
+    margin: 5%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+p
+{
+     padding: 20px; 
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+@media screen and (max-width: 768px)
+{
+    .box-noticia
+    {
+        width: 90%;
+    }
+}
