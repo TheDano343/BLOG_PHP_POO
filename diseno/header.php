@@ -29,11 +29,15 @@
             <div class="container-fluid">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="../../../blogPHPPOO/blog/usuario/landingPage.php" class="nav-link">Inicio</a>
+                        <a href="../../../blogPHPPOO/usuario/landingPage.php" class="nav-link">Inicio</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="administrativo.php" class="nav-link">Administrativo</a>
+                        <a href="../../blog/administrador/administrativo.php" class="nav-link">Administrativo</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../../blogPHPPOO/cuentas/index.php" class="nav-link">Cuentas</a>
                     </li>
                 </ul>
 

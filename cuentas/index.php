@@ -1,10 +1,13 @@
 <?php
 
-include '../../clases/Noticia.php';
-include '../../diseno/header.php';
+include '../diseno/header.php';
+require_once '../clases/Usuario.php';
+require_once '../clases/CuentasUsuarios.php';
 
-$noticia = new Noticia();
-$noticias = $noticia->obtenerTodos();
+
+
+$usuario = new GestionUsuario();
+$usuarios = $usuario->obtenerUsuarios();
 
 ?>
 
@@ -22,7 +25,7 @@ $noticias = $noticia->obtenerTodos();
     
 <div class="container">
         <section>
-        <h2 class="text-center">Lista de publicaciones</h2>
+        <h2 class="text-center">Lista de cuentas</h2>
         <br>
         <div class="table-responsive">
         <!-- table:para crear la tabla -->
@@ -32,29 +35,29 @@ $noticias = $noticia->obtenerTodos();
 
             <!--  -->
             <div class="container">
-                <a href="publicar.php" class="btn btn-success">Agregar publicacion</a>
+                <a href="crear.php" class="btn btn-success">Agregar un usuario</a>
             </div>
             <br>
                 <!-- tr:que es para crear filas de tablas -->
                 <tr>
                     <!-- th:define una celda como encabezado de un grupo de celdas en una tabla -->
                     <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
                 </tr>
             </thead>
 
             <tbody>
-            <?php foreach($noticias as $noticia): ?>
+            <?php foreach($usuarios as $usuario): ?>
             
 
             <tr>
-            <th><?= $noticia['idPublicacion']; ?></th>
-            <th><?= $noticia['titulo']; ?></th>
-            <th><img class="rounded-circle" width="50" height="50" src="<?= $noticia['imagen'] ?>"></th>
+            <th><?= $usuario['idUsuario']; ?></th>
+            <th><?= $usuario['nombre']; ?></th>
+            <th><?= $usuario['correo']; ?></th>
             <td>
-                <th><a href="editar.php?idPublicacion=<?= $noticia['idPublicacion']; ?>" class="btn btn-primary">Editar</a></th>
-                <th><a href="eliminar.php?idPublicacion=<?= $noticia['idPublicacion']; ?>" class="btn btn-danger">Borrar</a></th>
+                <th><a href="editar.php?idUsuario=<?= $usuario['idUsuario']; ?>" class="btn btn-primary">Editar</a></th>
+                <th><a href="eliminar.php?idUsuario=<?= $usuario['idUsuario']; ?>" class="btn btn-danger">Borrar</a></th>
             </td>
 
                 </div>
@@ -69,30 +72,3 @@ $noticias = $noticia->obtenerTodos();
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
