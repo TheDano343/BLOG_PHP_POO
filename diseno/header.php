@@ -12,12 +12,11 @@
         // Obtiene el nombre del usuario de la sesión
         $nombreUsuario = $_SESSION['usuario']; 
 ?>
- 
-
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,32 +24,27 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-sm bg-light navbar-light">
-            <div class="container-fluid">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="../../../blogPHPPOO/blog/usuario/landingPage.php" class="nav-link">Inicio</a>
-                    </li>
+    <header class="item" id="inicio">
+        <div class="logo">
+            <li class="nav-link"><span>
+                    <?php echo $nombreUsuario; ?>
+                </span>
+            </li>
+        </div>
+        <!-- Seleccion -->
+        <nav class="main-nav">
+            <ul id="main-menu" class="main-menu">
 
-                    <li class="nav-item">
-                        <a href="administrativo.php" class="nav-link">Administrativo</a>
-                    </li>
-                </ul>
+                <a href="../../../blogPHPPOO/blog/usuario/landingPage.php" class="main-menu_link">Inicio</a>
 
-                <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
-                        <a href="../../autenticacion/cerrar.php" class="nav-link">Cerrar</a>
-                </li>
+                <a href="../../../blogPHPPOO/blog/administrador/administrativo.php" class="main-menu_link">Administracion</a>
 
-                <li class="nav-link"><span><?php echo $nombreUsuario; ?></span>
-                </li>
+                <a href="../../../blogPHPPOO/cuentas/index.php" class="nav-link" class="main-menu_link">Cuentas</a>
 
-                </ul>
-            </div>
-
-
+                <a href="../../autenticacion/cerrar.php" class="main-menu_link">Cerrar Sesion</a>
+            </ul>
         </nav>
+    </header>
 </body>
 
 </html>
-

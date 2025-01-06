@@ -1,42 +1,31 @@
-// Registro
-const correo = document.getElementById('correo');
-const contraseña = document.getElementById('contraseña');
-const form = document.getElementById('form');
+const correo = document.getElementById("correo");
+const contraseña = document.getElementById("contraseña");
+const form = document.getElementById("form");
+const parrafo = document.getElementById("warnings");
 
-// Registro errores
-const email_error = document.getElementById('correo_error');
-const contraseña_error = document.getElementById('contrasena_error');
+form.addEventListener("submit", e=>{
+    let alertas = "";
+    let entrar = false;
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    parrafo.innerHTML = "";
 
-let checkEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(!regexEmail.test(correo.value)){
+        e.preventDefault();
+        alertas += `Email no valido <br>`;
+        entrar = true;
+    }
 
-form.addEventListener("submit", (e) =>{
-    let mensajes = [];
-
-    if(correo.value === '' || correo.value == null)
+    if(contraseña.value.length < 8)
     {
         e.preventDefault();
-        email_error.innerHTML = 'Se requiere el correo';
-    }
+        alertas += `La contraseña no es valida <br>`;
+        entrar = true;
+    } 
 
-    if(!correo.value.match(checkEmail))
+    if(entrar)
     {
-        e.preventDefault();
-        email_error.innerHTML = 'No cuenta como formato de correo';        
+        parrafo.innerHTML = alertas;
+    }else{
+        parrafo.innerHTML = "Enviado";
     }
-    else
-    {
-        email_error.innerHTML = "";
-    }
-
-    if(contraseña.value === '' || contraseña.value == null)
-    {
-        contraseña_error.innerHTML = 'Se requiere el nombre';
-
-    }
-
-    if(contraseña.value.length <= 6)
-    {
-        e.preventDefault();
-        contraseña_error.innerHTML = 'La contraseña tiene menos de 6 numeros';
-    }  
 })

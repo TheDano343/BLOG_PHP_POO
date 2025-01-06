@@ -15,72 +15,58 @@ if(isset($_POST['action']) && $_POST['action'] === 'register')
     $usuario->setContraseña($contraseña);
 
     $mensaje = $usuario->registrar();
-    echo $mensaje;
+    // echo $mensaje;
 }
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../diseno/general.css">  
+    <title>Document</title>
+    <link rel="stylesheet" href="../diseno/form.css">
 
-
-    <title>Registro</title>
-    
 </head>
 
 <body>
-
     <div class="container">
-        <form id="form" method="post"> 
-        <div id="error"></div>
-            
-
-            <div class="form-group">
-            <h2>Registro de usuario</h2>
-            </div>    
+        <form id="form" method="post">
+            <h1>Registrar Usuarios</h1>
 
             <?php if($mensaje): ?>
-                <p><?php echo $mensaje; ?></p>
+                <p><?php echo $mensaje ?></p>
             <?php endif; ?>
 
             <input type="hidden" name="action" value="register">
-
+            
             <div class="form-group"> 
                 <label for="correo">Nombre del Usuario</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre" id="nombre">
-                <span id="nombre_error"></span>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresa el nombre">
             </div>
 
-            <div class="form-group"> 
-                <label for="correo">Correo</label>
-                <input type="text" class="form-control" name="correo" placeholder="Ingresa el correo" id="correo">
-                <span id="correo_error"></span>
-            </div>
-            
             <div class="form-group">
-            <label for="contraseña">Contraseña</label>
-            <input type="password" class="form-control" name="contraseña" placeholder="Ingresa la contraseña" id="contraseña">
-            <span id="contrasena_error"></span>
+                <label for="">Correo</label>
+                <input type="text" class="form-control" name="correo" id="correo" placeholder="Ingresa el correo">
             </div>
 
-            <div class="form-group"> 
-            <button type="submit" class="btn btn-primary" name="registro" id="Enviar">Acceder</button>
-                
-        </div> 
-            
-            <p>Accede a tu cuenta <a href="../autenticacion/login.php">click aqui</a></p>
-            <div id="respuesta"></div>
+            <div class="form-group">
+                <label for="">Contraseña</label>
+                <input type="text" class="form-control" name="contraseña" id="contraseña" placeholder="Ingresa la contraseña">
+            </div>
+           
+            <div class="botones-grupo">
+                <button class="azul" type="submit" name="login">Acceder</button>
+                <p id="warnings"></p>
+            </div>
+                <p>Crea tu cuenta <a href="../autenticacion/login.php">Accede aqui</a></p>
+        </form> 
+    <script src="../js/validacionesRegistro.js"></script>
 
-            <script src="../js/validacionesRegistro.js"></script>
-            
-      </div>
-     </form>
     </div>
 </body>
-</html>
 
+</html>

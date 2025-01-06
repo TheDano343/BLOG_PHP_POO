@@ -39,54 +39,47 @@ if($id)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../diseno/general.css">
     <title>Document</title>
+    <link rel="stylesheet" href="../../diseno/form.css">
+
 </head>
 
 <body>
-    <!-- enctype="multipart/form-data" : Cuando se envían archivos binarios, como imágenes, archivos de audio, archivos de vídeo, etc., desde un formulario HTML a un servidor. -->
-    <form enctype="multipart/form-data" method="POST">
-
-        <div class="container">
-            <section>
-            <h1 class="titulo">Actualizar Publicacion</h1>
-
-            <div class="form-group">
-                <!--name: Permite a un script acceder a su contenido. -->
-                <label for="titulo">Titulo</label>
-                <input class="form-control" name="titulo" type="text" value="<?= $noticiaActual['titulo']; ?>" placeholder="Coloca titulo">
-            </div>
-
-            <div class="form-group">
-                <label for="descripcion">Descripcion</label>
-                <input class="form-control" name="descripcion" type="text" value="<?= $noticiaActual['descripcion']; ?>" placeholder="Coloca descripcion">
-            </div>
-
-            <div class="form-group">
-                <label for="contenido">Contenido</label>
-                <textarea class="form-control" name="contenido" placeholder="Coloca contenido"><?= $noticiaActual['contenido']; ?></textarea>
-            </div>
-
-            <div class="form-group">
-            <input class="form-control" name="imagen" type="file" id="imagen">
-            <?php if (!empty($noticiaActual['imagen'])): ?>
-                <img src="<?= $noticiaActual['imagen'] ?>" class="img-fluid mt-2" alt="imagen">
-            <?php endif; ?>
-        </div>
-
-            <div class="form-group">
-                <!-- especifica el método HTTP que el navegador usará para enviar el formulario -->
-                <button input="submit" class="btn btn-primary" name="btnActualizar">Actualizar</button>
-                <a href="../administrador/administrativo.php" class="btn btn-dark">Regresar</a>
-
-            </div>
-            </section>
+    <div class="container">
+        <form id="form" enctype="multipart/form-data" method="post">
+            <h1>Editar</h1>
             
-    </form>
-    </div>
+            <div class="form-group">
+                <label for="">Titulo</label>
+                <input type="text" class="form-control" id="titulo" value="<?= $noticiaActual['titulo']; ?>" name="titulo">
+                <p id="titulo_error"></p>
+            </div>
 
+            <div class="form-group">
+                <label for="">Descripcion</label>
+                <textarea type="text" class="form-control" id="descripcion" name="descripcion"><?= $noticiaActual['descripcion']; ?></textarea>
+                <span id="descripcion_error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Contenido</label>
+                <textarea type="text" class="form-control" id="contenido" name="contenido"><?= $noticiaActual['contenido']; ?></textarea>
+                <span id="contenido_error"></span>
+            </div>
+
+             <div class="form-group">
+                <label>Imagen</label>
+                <input type="file" class="form-control" id="imagen" name="imagen">
+                <span id="imagen_error"></span>
+            </div>
+           
+            <div class="form-group">
+                <button class="azul" type="submit" name="creacionP">Actualizar</button>
+                <a href="../administrador/administrativo.php">Regresar</a>
+            </div>
+        </form>
+        <script src="../../js/validacionBlog.js"></script>
+    </div>
 </body>
 
 </html>

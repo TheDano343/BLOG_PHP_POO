@@ -1,6 +1,7 @@
 <?php
+require_once '../DB/BaseDeDatos.php';
+require_once '../clases/Usuario.php';
 
-require '../DB/BaseDeDatos.php';
 
 // extends : Hereda de la clase BaseDeDatos
 class Usuario extends BaseDeDatos

@@ -8,27 +8,28 @@ $informaciones = $informacion->visualizarNoticias()
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<link rel="stylesheet" href="../../diseno/header.css">
-<link rel="stylesheet" href="../../diseno/dashboard.css">
+    <link rel="stylesheet" href="../../diseno/cards.css">
 </head>
+
 <body>
-
-<div class="container">
-    <?php foreach($informaciones as $informacion): ?>
-
+    <div class="card-container">
+        <?php foreach($informaciones as $informacion): ?>
         <a href="../usuario/visualizarInfo.php?idPublicacion=<?= $informacion['idPublicacion']; ?>" class="card-link">
-            
             <div class="card">
-                <img src="<?= $informacion['imagen'] ?>" alt="">
-                <div class="intro">
-                <h1><?= $informacion['titulo'] ?></h1>
-                <p><span><?= $informacion['descripcion'] ?></span></p>
+                <img src="<?= $informacion['imagen'] ?>">
+                <div class="card-content">
+                    <h3><?= $informacion['titulo'] ?></h3>
+                    <p><?= $informacion['descripcion'] ?></p>
+                    <a class="btn">Leer Más</a>
                 </div>
-                </a>
             </div>
-            <?php endforeach; ?>   
-        </div>
+            <?php endforeach; ?>
+    </div>
+</body>
+
+</html>
